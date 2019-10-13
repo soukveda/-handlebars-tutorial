@@ -30,6 +30,9 @@
     <!--HTML with triple stash-->
     {{{laoBio}}}<br /><br />
 
+    <!--This allows you not to use triple stash-->
+    {{makeLink "Lao Food Museum" "http://laofoodmuseum.org/"}}<br /><br />
+
 </script>
 
 <script type="text/javascript">
@@ -37,6 +40,16 @@
     var foodInfo = document.getElementById("food-template").innerHTML; // Selects your food-template script
 
     var template = Handlebars.compile(foodInfo);  // This function will help you to create the output => joins the javascript data with html
+
+     // helper function to grab text and url from 'makeLink'
+     Handlebars.registerHelper("makeLink", function(text, url){
+        text = Handlebars.Utils.escapeExpression(text);
+        url = Handlebars.Utils.escapeExpression(url);
+
+        var theLink = '<a href="' + url + '">' + text + '</a>';
+
+        return new Handlebars.SafeString(theLink);  // this prevents the string from being escaped...no need for triple stash.
+    });
 
     var foodData = template({
         type: "Lao Food",
