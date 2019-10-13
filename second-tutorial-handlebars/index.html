@@ -36,6 +36,9 @@
     <!--Learning how to pass attributes-->
     {{changeColor "Make my text red" color="red"}}<br /><br />
 
+    <!--Learning to pass options that will be available to all helper functions-->
+    {{sayHello}}
+
 </script>
 
 <script type="text/javascript">
@@ -68,6 +71,20 @@
         }
     });
 
+    // new helper function to grab from 'sayHello'
+    Handlebars.registerHelper("sayHello", function(options){
+        switch(options.data.lang){
+            case "Lao":
+                return "Sabaidee";
+                break;
+            case "Spanish":
+                return "Hola";
+                break;
+            default:
+                return "Hello";
+        }
+    });
+
     var foodData = template({
         type: "Lao Food",
         foods: [
@@ -77,6 +94,9 @@
         ], 
         laoBio: '<i>Lao food originates from Laos. When you have the authentic food, it is absolutely amazing!</i>' + 
         '<i>Not only will you fall in love with the food, but the people as well!</i>'
+    }, {data:{ // create your options that will be available for all helper functions
+        lang: "Lao"   // you can change "lang: '[language]'" to create different outputs, depending on the helper function
+        }
     });
 
     document.getElementById("foodData").innerHTML += foodData;
