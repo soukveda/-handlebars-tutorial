@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Second Handlebars Tutorial</title>
+         <style type="text/css">
+            .redText {color: red;}
+            .blueText {color: blue;}
+            .greenText {color: green;}
+         </style>
+         <script src="../../extensions/handlebars-v4.4.3.js"></script>
+    </head>
+<body>
+    <div id="foodData"></div>
+
+
+</body>
+
+<!--It is ideal to separate your templates from your actual javascript-->
+<!--Use id="quote-template" to be able to reference to when creating the javascript-->
+<script id="food-template" type="text/x-handlebars-template">
+
+    <h3>Soukveda's Favorite {{type}} Foods</h3>
+    <!-- make use of "each-helper". Will allow you to insert array's of data-->
+    <ol>
+        {{#each foods}}
+        <li>{{food}}
+        {{/each}}
+    </ol>
+
+</script>
+
+<script type="text/javascript">
+
+    var foodInfo = document.getElementById("food-template").innerHTML; // Selects your food-template script
+
+    var template = Handlebars.compile(foodInfo);  // This function will help you to create the output => joins the javascript data with html
+
+    var foodData = template({
+        type: "Lao Food",
+        foods: [
+            {food: "Tum Mah Hok (papaya salad)"},
+            {food: "Laab"},
+            {food: "Angel Chicken wings"}
+        ]
+    });
+
+    document.getElementById("foodData").innerHTML += foodData;
+
+</script>
+
+</html>
