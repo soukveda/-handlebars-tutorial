@@ -27,6 +27,9 @@
         {{/each}}
     </ol>
 
+    <!--HTML with triple stash-->
+    {{{laoBio}}}<br /><br />
+
 </script>
 
 <script type="text/javascript">
@@ -41,7 +44,9 @@
             {food: "Tum Mah Hok (papaya salad)"},
             {food: "Laab"},
             {food: "Angel Chicken wings"}
-        ]
+        ], 
+        laoBio: '<i>Lao food originates from Laos. When you have the authentic food, it is absolutely amazing!</i>' + 
+        '<i>Not only will you fall in love with the food, but the people as well!</i>'
     });
 
     document.getElementById("foodData").innerHTML += foodData;
