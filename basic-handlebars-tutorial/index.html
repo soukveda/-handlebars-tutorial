@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic use of Handlebars</title>
+        <script src="../extensions/handlebars-v4.4.3.js"></script> <!-- location of the handlebars.js file-->
+    </head>
+
+<body>
+
+
+<!--The following code will show you how to use handlebars.js in a very basic use-case scenario-->
+
+<div id="soukvedaData"></div>
+
+<!--script that will be used to run the handlebars.js file.
+    {{}} -> using handlebars code.
+-->
+<script type="text/javascript">
+
+    var myInfo = "<p>My name is {{name}} and I live at {{street}} in {{city}}, {{state}} </p>";
+
+    var template = Handlebars.compile(myInfo); // This is the javascript function that will create the output => joins data in javascript with html\
+
+    var data = template({name: "Chris", street: "123 Main St", city: "Somewhere-in-California", state: "CA"});
+
+    document.getElementById("soukvedaData").innerHTML += data;  // allows you to place your 'data' within your div with id="soukvedaData"
+</script>
+
+</body>
+</html>

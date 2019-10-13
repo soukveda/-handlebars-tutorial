@@ -1,0 +1,19 @@
+{
+  "name": "handlebars-.hbs",
+  "version": "1.0.0",
+  "description": "Learning how to use handlebars.hbs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soukveda/-handlebars-tutorial.git"
+  },
+  "author": "Christopher Phongsa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soukveda/-handlebars-tutorial/issues"
+  },
+  "homepage": "https://github.com/soukveda/-handlebars-tutorial#readme"
+}
