@@ -33,6 +33,9 @@
     <!--This allows you not to use triple stash-->
     {{makeLink "Lao Food Museum" "http://laofoodmuseum.org/"}}<br /><br />
 
+    <!--Learning how to pass attributes-->
+    {{changeColor "Make my text red" color="red"}}<br /><br />
+
 </script>
 
 <script type="text/javascript">
@@ -48,7 +51,21 @@
 
         var theLink = '<a href="' + url + '">' + text + '</a>';
 
-        return new Handlebars.SafeString(theLink);  // this prevents the string from being escaped...no need for triple stash.
+        return new Handlebars.SafeString(theLink);  // 'SafeString' prevents the string from being escaped...no need for triple stash.
+    });
+
+    // helper function to grab text and color from 'changeColor'
+    Handlebars.registerHelper("changeColor", function(text, options){
+        text = Handlebars.Utils.escapeExpression(text);
+
+        // attributes will be passed in 'options'
+        if(options.hash.color === "red"){
+            return new Handlebars.SafeString("<span class='redText'>" + text + "</span>");
+        } else if(options.hash.color === "blue") {
+            return new Handlebars.SafeString("<span class='blueText'>" + text + "</span>");
+        } else {
+            return new Handlebars.SafeString("<span class='greenText'>" + text + "</span>");
+        }
     });
 
     var foodData = template({
